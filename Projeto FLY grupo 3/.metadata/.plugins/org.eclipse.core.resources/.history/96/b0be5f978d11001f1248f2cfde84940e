@@ -1,0 +1,5 @@
+package br.org.serratec.projetofly.repositories;
+
+public class UsuarioRepository {
+
+}

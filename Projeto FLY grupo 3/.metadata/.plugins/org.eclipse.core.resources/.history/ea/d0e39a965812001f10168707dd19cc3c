@@ -1,0 +1,24 @@
+package br.org.serratec.projetofly.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import br.org.serratec.projetofly.entities.Emprestimo;
+import br.org.serratec.projetofly.repositories.EmprestimoRepository;
+
+@Service
+public class EmprestimoService {
+	
+	@Autowired
+	EmprestimoRepository emprestimoRepository;
+
+	public List<Emprestimo> findAll () {
+		return emprestimoRepository.findAll();
+	}
+	
+	public Emprestimo findById(Integer id) {
+		return emprestimoRepository.findById(id).orElse(null);
+	}
+}

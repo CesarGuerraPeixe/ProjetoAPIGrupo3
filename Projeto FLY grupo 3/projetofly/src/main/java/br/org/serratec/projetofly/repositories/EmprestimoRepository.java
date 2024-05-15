@@ -1,0 +1,10 @@
+package br.org.serratec.projetofly.repositories;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import br.org.serratec.projetofly.entities.Emprestimo;
+
+public interface EmprestimoRepository
+	extends JpaRepository<Emprestimo,Integer>{
+	
+}

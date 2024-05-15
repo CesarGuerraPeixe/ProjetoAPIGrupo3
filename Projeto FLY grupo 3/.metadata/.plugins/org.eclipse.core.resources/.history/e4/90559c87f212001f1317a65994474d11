@@ -1,0 +1,141 @@
+package br.org.serratec.projetofly.entities;
+
+import java.math.BigDecimal;
+import java.sql.Date;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+
+@Entity
+@Table(name = "emprestimo")
+@JsonIdentityInfo(
+		generator = ObjectIdGenerators.PropertyGenerator.class,
+		property = "emprestimoId",
+		scope = Emprestimo.class
+)
+public class Emprestimo {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "emprestimo_id")
+    private Integer emprestimoId;
+
+    @Column(name = "aluno_matricula", nullable = false)
+    private Integer alunoMatricula;
+
+    @Column(name = "livro_id", nullable = false)
+    private Integer livroId;
+
+    @Column(name = "data_emprestimo", nullable = false)
+    @Temporal(TemporalType.DATE)
+    private Date dataEmprestimo;
+
+    @Column(name = "data_entrega")
+    @Temporal(TemporalType.DATE)
+    private Date dataEntrega;
+
+    @Column(name = "valor_emprestimo", precision = 10, scale = 2)
+    private BigDecimal valorEmprestimo;
+    
+    @ManyToOne
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
+    
+    @ManyToOne
+    @JoinColumn(name = "livro_id")
+    private Livro livro;
+    
+    public Emprestimo() {
+    }
+    
+	public Emprestimo(Integer emprestimoId, Integer alunoMatricula, Integer livroId, Date dataEmprestimo,
+			Date dataEntrega, BigDecimal valorEmprestimo, Aluno aluno) {
+		super();
+		this.emprestimoId = emprestimoId;
+		this.alunoMatricula = alunoMatricula;
+		this.livroId = livroId;
+		this.dataEmprestimo = dataEmprestimo;
+		this.dataEntrega = dataEntrega;
+		this.valorEmprestimo = valorEmprestimo;
+		this.aluno = aluno;
+	}
+
+	public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
+
+	public Integer getEmprestimoId() {
+		return emprestimoId;
+	}
+
+	public void setEmprestimoId(Integer emprestimoId) {
+		this.emprestimoId = emprestimoId;
+	}
+
+	public Integer getAlunoMatricula() {
+		return alunoMatricula;
+	}
+
+	public void setAlunoMatricula(Integer alunoMatricula) {
+		this.alunoMatricula = alunoMatricula;
+	}
+
+	public Integer getLivroId() {
+		return livroId;
+	}
+
+	public void setLivroId(Integer livroId) {
+		this.livroId = livroId;
+	}
+
+	public Date getDataEmprestimo() {
+		return dataEmprestimo;
+	}
+
+	public void setDataEmprestimo(Date dataEmprestimo) {
+		this.dataEmprestimo = dataEmprestimo;
+	}
+
+	public Date getDataEntrega() {
+		return dataEntrega;
+	}
+
+	public void setDataEntrega(Date dataEntrega) {
+		this.dataEntrega = dataEntrega;
+	}
+
+	public BigDecimal getValorEmprestimo() {
+		return valorEmprestimo;
+	}
+
+	public void setValorEmprestimo(BigDecimal valorEmprestimo) {
+		this.valorEmprestimo = valorEmprestimo;
+	}
+
+	@Override
+	public String toString() {
+		return "Emprestimo [emprestimoId=" + emprestimoId + ", alunoMatricula=" + alunoMatricula + ", livroId="
+				+ livroId + ", dataEmprestimo=" + dataEmprestimo + ", dataEntrega=" + dataEntrega + ", valorEmprestimo="
+				+ valorEmprestimo + ", aluno=" + aluno + ", getEmprestimoId()=" + getEmprestimoId()
+				+ ", getAlunoMatricula()=" + getAlunoMatricula() + ", getLivroId()=" + getLivroId()
+				+ ", getDataEmprestimo()=" + getDataEmprestimo() + ", getDataEntrega()=" + getDataEntrega()
+				+ ", getValorEmprestimo()=" + getValorEmprestimo() + ", getClass()=" + getClass() + ", hashCode()="
+				+ hashCode() + ", toString()=" + super.toString() + "]";
+	}
+
+    
+}
