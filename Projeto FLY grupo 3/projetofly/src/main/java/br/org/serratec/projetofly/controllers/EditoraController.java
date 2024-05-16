@@ -40,9 +40,9 @@ public class EditoraController {
 		return editoraService.save(editora);
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<Editora> updateEditora(@PathVariable Long id, @RequestBody Editora editoraDetails) {
-		Optional<Editora> editora = editoraService.findById(id);
+	@PutMapping
+	public ResponseEntity<Editora> updateEditora(@RequestBody Editora editoraDetails) {
+		Optional<Editora> editora = editoraService.findById(editoraDetails.getEditoraId());
 		if (editora.isPresent()) {
 			Editora updatedEditora = editora.get();
 			updatedEditora.setEditoraNome(editoraDetails.getEditoraNome());

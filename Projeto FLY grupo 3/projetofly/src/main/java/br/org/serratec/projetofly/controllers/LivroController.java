@@ -18,7 +18,7 @@ import br.org.serratec.projetofly.entities.Livro;
 import br.org.serratec.projetofly.services.LivroService;
 
 @RestController
-@RequestMapping("/livro")
+@RequestMapping("/livros")
 
 public class LivroController {
 	

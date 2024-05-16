@@ -30,14 +30,18 @@ public class Livro {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "livro_id")
 	private Integer livroId;
+	
 	@Column(name = "nome_livro")
-	private String nomelivro;
+	private String nomeLivro;
+	
 	@Column(name = "nome_autor")
-	private String nomeautor;
+	private String nomeAutor;
+	
 	@Column(name = "data_lancamento")
-	private LocalDate datalancamento;
-	@Column(name = "codigo_isbn")
-	private Integer codigo_isbn;
+	private LocalDate dataLancamento;
+	
+	@Column(name = "codigoIsbn")
+	private Integer codigoIsbn;
 	
 	@OneToMany(mappedBy = "livro")
 	private List<Emprestimo> emprestimos;
@@ -49,14 +53,14 @@ public class Livro {
 	public Livro() {
 	}
 	
-	public Livro(Integer livroId, String nomelivro, String nomeautor, LocalDate datalancamento, Integer codigo_isbn,
+	public Livro(Integer livroId, String nomeLivro, String nomeAutor, LocalDate dataLancamento, Integer codigoIsbn,
 			List<Emprestimo> emprestimo, Editora editora) {
 		super();
 		this.livroId = livroId;
-		this.nomelivro = nomelivro;
-		this.nomeautor = nomeautor;
-		this.datalancamento = datalancamento;
-		this.codigo_isbn = codigo_isbn;
+		this.nomeLivro = nomeLivro;
+		this.nomeAutor = nomeAutor;
+		this.dataLancamento = dataLancamento;
+		this.codigoIsbn = codigoIsbn;
 		this.emprestimos = emprestimo;
 		this.editora = editora;
 	}
@@ -85,46 +89,46 @@ public class Livro {
 		this.livroId = livroId;
 	}
 
-	public String getNomelivro() {
-		return nomelivro;
+	public String getnomeLivro() {
+		return nomeLivro;
 	}
 
-	public void setNomelivro(String nomelivro) {
-		this.nomelivro = nomelivro;
+	public void setnomeLivro(String nomeLivro) {
+		this.nomeLivro = nomeLivro;
 	}
 
-	public String getNomeautor() {
-		return nomeautor;
+	public String getnomeAutor() {
+		return nomeAutor;
 	}
 
-	public void setNomeautor(String nomeautor) {
-		this.nomeautor = nomeautor;
+	public void setnomeAutor(String nomeAutor) {
+		this.nomeAutor = nomeAutor;
 	}
 
-	public LocalDate getDatalancamento() {
-		return datalancamento;
+	public LocalDate getdataLancamento() {
+		return dataLancamento;
 	}
 
-	public void setDatalancamento(LocalDate datalancamento) {
-		this.datalancamento = datalancamento;
+	public void setdataLancamento(LocalDate dataLancamento) {
+		this.dataLancamento = dataLancamento;
 	}
 
-	public Integer getCodigo_isbn() {
-		return codigo_isbn;
+	public Integer getcodigoIsbn() {
+		return codigoIsbn;
 	}
 
-	public void setCodigo_isbn(Integer codigo_isbn) {
-		this.codigo_isbn = codigo_isbn;
+	public void setcodigoIsbn(Integer codigoIsbn) {
+		this.codigoIsbn = codigoIsbn;
 	}
 
 	@Override
 	public String toString() {
-		return "Livro [livroId=" + livroId + ", nomelivro=" + nomelivro + ", nomeautor=" + nomeautor
-				+ ", datalancamento=" + datalancamento + ", codigo_isbn=" + codigo_isbn + ", emprestimos=" + emprestimos
+		return "Livro [livroId=" + livroId + ", nomeLivro=" + nomeLivro + ", nomeAutor=" + nomeAutor
+				+ ", dataLancamento=" + dataLancamento + ", codigoIsbn=" + codigoIsbn + ", emprestimos=" + emprestimos
 				+ ", editora=" + editora + ", getEmprestimo()=" + getEmprestimo() + ", getEditora()=" + getEditora()
-				+ ", getLivroId()=" + getLivroId() + ", getNomelivro()=" + getNomelivro() + ", getNomeautor()="
-				+ getNomeautor() + ", getDatalancamento()=" + getDatalancamento() + ", getCodigo_isbn()="
-				+ getCodigo_isbn() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
+				+ ", getLivroId()=" + getLivroId() + ", getnomeLivro()=" + getnomeLivro() + ", getnomeAutor()="
+				+ getnomeAutor() + ", getdataLancamento()=" + getdataLancamento() + ", getcodigoIsbn()="
+				+ getcodigoIsbn() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()="
 				+ super.toString() + "]";
 	}
 

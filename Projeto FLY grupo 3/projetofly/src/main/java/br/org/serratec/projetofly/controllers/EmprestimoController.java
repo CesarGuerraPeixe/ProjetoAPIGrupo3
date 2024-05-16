@@ -42,7 +42,7 @@ public class EmprestimoController {
         return new ResponseEntity<>(emprestimoService.save(emprestimo), HttpStatus.CREATED);
     }
     
-    @PutMapping("/{id}")
+    @PutMapping
     public ResponseEntity<Emprestimo> update(@RequestBody Emprestimo emprestimo) {
             return new ResponseEntity<>(emprestimoService.update(emprestimo), HttpStatus.OK);
     }
